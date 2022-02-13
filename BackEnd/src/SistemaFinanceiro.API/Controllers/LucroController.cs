@@ -30,5 +30,13 @@ namespace SistemaFinanceiro.API.Controllers
         {
             return context.Lucros.FirstOrDefault(x => x.Id == id);
         }
+
+        [HttpPost]
+        public Lucro AddLucro([FromBody] Lucro lucro)
+        {
+            context.Lucros.Add(lucro);
+            context.SaveChanges();
+            return lucro;
+        }
     }
 }
