@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SistemaFinanceiro.API.Data;
 using SistemaFinanceiro.API.Models;
 
 namespace SistemaFinanceiro.API.Controllers
@@ -12,19 +13,22 @@ namespace SistemaFinanceiro.API.Controllers
     [Route("[controller]")]
     public class LucroController : ControllerBase
     {
-        public LucroController()
+        private readonly DataContext context;
+        public LucroController(DataContext context)
         {
-            
+            this.context = context;
         }
 
         [HttpGet]
-        public Lucro Get()
+        public IEnumerable<Lucro> Get()
         {
-            return new Lucro(){
-                Id = 1,
-                Nome = "Salário",
-                Valor = 3600
-            };
+            return context.Lucros;
+        }
+
+        [HttpGet("{id}")]
+        public Lucro GetById(int id)
+        {
+            return context.Lucros.FirstOrDefault(x => x.Id == id);
         }
     }
 }
