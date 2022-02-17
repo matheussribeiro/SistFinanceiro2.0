@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
-using SistemaFinanceiro.API.Models;
 using SistemaFinanceiro.Application.Interface;
+using SistemaFinanceiro.Domain;
 using SistemaFinanceiro.Persistence.Interface;
 
 namespace SistemaFinanceiro.Application

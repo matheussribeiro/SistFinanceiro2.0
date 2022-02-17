@@ -1,9 +1,9 @@
 using System.Linq;
 using System.Threading.Tasks;
 using SistemaFinanceiro.API.Data;
-using SistemaFinanceiro.API.Models;
 using SistemaFinanceiro.Persistence.Interface;
 using Microsoft.EntityFrameworkCore;
+using SistemaFinanceiro.Domain;
 
 namespace SistemaFinanceiro.Persistence
 {

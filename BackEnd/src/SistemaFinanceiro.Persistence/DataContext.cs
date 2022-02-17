@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using SistemaFinanceiro.API.Models;
+using SistemaFinanceiro.Domain;
 
 namespace SistemaFinanceiro.API.Data
 {

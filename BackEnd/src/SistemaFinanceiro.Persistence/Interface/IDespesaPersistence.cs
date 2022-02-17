@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using SistemaFinanceiro.API.Models;
+using SistemaFinanceiro.Domain;
 
 namespace SistemaFinanceiro.Persistence.Interface
 {

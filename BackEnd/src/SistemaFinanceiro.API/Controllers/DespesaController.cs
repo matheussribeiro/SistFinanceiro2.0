@@ -2,8 +2,8 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SistemaFinanceiro.API.Models;
 using SistemaFinanceiro.Application.Interface;
+using SistemaFinanceiro.Domain;
 
 namespace SistemaFinanceiro.API.Controllers
 {

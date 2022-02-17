@@ -1,4 +1,4 @@
-namespace SistemaFinanceiro.API.Models
+namespace SistemaFinanceiro.Domain
 {
     public class TipoDespesa
     {
