@@ -6,6 +6,7 @@ namespace SistemaFinanceiro.Persistence.Interface
     public interface IDespesaPersistence
     {
         Task<Despesa[]> GetAllDespesasAsync();
+        Task<Despesa> GetDespesaByIdAsync(int despesaId);
          
     }
 }

@@ -19,5 +19,11 @@ namespace SistemaFinanceiro.Persistence
             IQueryable<Despesa> query = context.Despesas;
             return await query.ToArrayAsync();
         }
+
+        public async Task<Despesa> GetDespesaByIdAsync(int despesaId)
+        {
+            IQueryable<Despesa> query = context.Despesas.Where(dp => dp.Id == despesaId);
+            return await query.FirstOrDefaultAsync();
+        }
     }
 }
