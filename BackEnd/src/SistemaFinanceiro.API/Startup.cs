@@ -6,6 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using SistemaFinanceiro.API.Data;
+using SistemaFinanceiro.Application;
+using SistemaFinanceiro.Application.Interface;
+using SistemaFinanceiro.Persistence;
+using SistemaFinanceiro.Persistence.Interface;
 
 namespace SistemaFinanceiro.API
 {
@@ -26,6 +30,12 @@ namespace SistemaFinanceiro.API
 
             );
             services.AddControllers();
+
+            services.AddScoped<IDespesaService, DespesaService>();
+            services.AddScoped<IDespesaPersistence, DespesaPersistence>();
+            services.AddScoped<IGeralPersistence, GeralPersistence>();
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SistemaFinanceiro.API", Version = "v1" });
