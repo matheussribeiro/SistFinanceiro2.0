@@ -1,0 +1,36 @@
+<div id="topo">
+  <button id="btadddesp" nz-button nzType="primary">
+    <i nz-icon nzType="plus"></i>
+    Adicionar Despesa
+  </button>
+  <div id="data-saldo">
+    <span>Mês Atual : {{mes}}</span>
+    <span>Saldo Disponível : R$:500,00</span>
+  </div>
+  <span id="proxmes">Próximo mês</span>
+</div>
+<br>
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Valor</th>
+      <th>Parcela</th>
+      <th>Pago</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{data.name}}</td>
+      <td>{{data.age}}</td>
+      <td>{{data.address}}</td>
+      <td>
+        <a>sim</a>
+      </td>
+      <td>
+        Excluir
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

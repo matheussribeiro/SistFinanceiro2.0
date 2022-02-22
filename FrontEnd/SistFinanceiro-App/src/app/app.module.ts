@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,12 +15,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { DespesasComponent } from './pages/despesas/despesas.component';
+import { LucrosComponent } from './pages/lucros/lucros.component';
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 registerLocaleData(pt);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DespesasComponent,
+    LucrosComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +35,9 @@ registerLocaleData(pt);
     BrowserAnimationsModule,
     IconsProviderModule,
     NzLayoutModule,
-    NzMenuModule
+    NzMenuModule,
+    NzButtonModule,
+    NzTableModule
   ],
   providers: [{ provide: NZ_I18N, useValue: pt_BR }],
   bootstrap: [AppComponent]
