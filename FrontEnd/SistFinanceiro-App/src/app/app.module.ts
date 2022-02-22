@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-
+import { NzRadioModule } from 'ng-zorro-antd/radio';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,8 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { DespesasComponent } from './pages/despesas/despesas.component';
 import { LucrosComponent } from './pages/lucros/lucros.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+
 
 registerLocaleData(pt);
 
@@ -37,7 +39,9 @@ registerLocaleData(pt);
     NzLayoutModule,
     NzMenuModule,
     NzButtonModule,
-    NzTableModule
+    NzTableModule,
+    NzRadioModule,
+    NzCheckboxModule
   ],
   providers: [{ provide: NZ_I18N, useValue: pt_BR }],
   bootstrap: [AppComponent]

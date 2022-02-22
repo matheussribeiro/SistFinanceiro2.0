@@ -34,7 +34,7 @@ namespace SistemaFinanceiro.API
             services.AddScoped<IDespesaService, DespesaService>();
             services.AddScoped<IDespesaPersistence, DespesaPersistence>();
             services.AddScoped<IGeralPersistence, GeralPersistence>();
-
+            services.AddCors();
 
             services.AddSwaggerGen(c =>
             {
@@ -57,6 +57,11 @@ namespace SistemaFinanceiro.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(access => access.AllowAnyHeader()
+                                        .AllowAnyMethod()
+                                        .AllowAnyOrigin()
+            );
 
             app.UseEndpoints(endpoints =>
             {

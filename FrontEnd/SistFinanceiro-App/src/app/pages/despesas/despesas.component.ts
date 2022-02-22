@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { despesaService } from 'src/app/services/despesaService.service';
+
 
 
 interface Person {
@@ -15,13 +17,20 @@ interface Person {
 })
 export class DespesasComponent implements OnInit {
 
+  public despesas : any = [];
+  checked = false
 
-
-
-
-  constructor() { }
+  constructor(private despesaService : despesaService) { }
 
   ngOnInit(): void {
+    this.getDespesas();
+  }
+
+  public getDespesas() :void {
+    this.despesaService.getDespesas().subscribe(
+      response => {this.despesas = response , console.log(this.despesas)},
+      error => console.log(error)
+    );
   }
 
   meses = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
@@ -29,28 +38,5 @@ export class DespesasComponent implements OnInit {
   data = new Date()
 
   mes = this.meses[this.data.getMonth()];
-
-
-  listOfData: Person[] = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park'
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    }
-  ];
-
 
 }
