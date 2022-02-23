@@ -1,5 +1,5 @@
 <div id="topo">
-  <button id="btadddesp" nz-button nzType="primary">
+  <button id="btadddesp" (click)="OpenModal()"  nz-button nzType="primary">
     <i nz-icon nzType="plus"></i>
     Adicionar Despesa
   </button>
@@ -34,3 +34,27 @@
     </tr>
   </tbody>
 </nz-table>
+
+
+
+    <nz-modal
+      [nzStyle]="{ top: '20px' }"
+      [(nzVisible)]="isVisibleTop"
+      nzTitle="Adicionar Despesa"
+      (nzOnCancel)="handleCancelTop()"
+      (nzOnOk)="addDespesa()"
+    >
+      <ng-container *nzModalContent>
+        <div id="modalinclude">
+          <div id="divtopo">
+            <span>Nome :</span>  <input [(ngModel)]="newDespesa.Nome" type="text">
+            <span>Valor :</span>  <input [(ngModel)]="newDespesa.Valor" type="text">
+          </div>
+          <div>
+            Parcelas : <input id="inputparc"  [(ngModel)]="newDespesa.Parcela" type="text">
+            Tipo de Despesa : <input type="text"  [(ngModel)]="newDespesa.TipoDespesaId">
+          </div>
+
+        </div>
+      </ng-container>
+    </nz-modal>

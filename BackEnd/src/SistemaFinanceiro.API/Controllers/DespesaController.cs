@@ -56,6 +56,7 @@ namespace SistemaFinanceiro.API.Controllers
         {
             try
             {
+                model.DataIncl = DateTime.Now;
                 var despesa = await despesaService.AddDespesa(model);
                 if(despesa == null) return BadRequest("Erro ao cadastrar despesa.");
 
