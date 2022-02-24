@@ -1,5 +1,6 @@
 <div id="topo">
-  <button id="btadddesp" (click)="OpenModal()"  nz-button nzType="primary">
+  <button id="btadddesp" (click)="showModal2()"  nz-button nzType="primary">
+    <app-add-despesa *ngIf="isVisibleTop"></app-add-despesa>
     <i nz-icon nzType="plus"></i>
     Adicionar Despesa
   </button>
@@ -10,7 +11,7 @@
   <span id="proxmes">Próximo mês</span>
 </div>
 <br>
-<nz-table #basicTable [nzData]="despesas">
+<nz-table #headerTable [nzData]="despesas" [nzPageSize]="5" [nzScroll]="{ y: '240px' }">
   <thead>
     <tr>
       <th>Pago</th>
@@ -21,7 +22,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of basicTable.data">
+    <tr *ngFor="let data of headerTable.data">
       <td>
         <label nz-checkbox [(ngModel)]="data.statusDespesa"></label>
       </td>
@@ -35,26 +36,3 @@
   </tbody>
 </nz-table>
 
-
-
-    <nz-modal
-      [nzStyle]="{ top: '20px' }"
-      [(nzVisible)]="isVisibleTop"
-      nzTitle="Adicionar Despesa"
-      (nzOnCancel)="handleCancelTop()"
-      (nzOnOk)="addDespesa()"
-    >
-      <ng-container *nzModalContent>
-        <div id="modalinclude">
-          <div id="divtopo">
-            <span>Nome :</span>  <input [(ngModel)]="newDespesa.Nome" type="text">
-            <span>Valor :</span>  <input [(ngModel)]="newDespesa.Valor" type="text">
-          </div>
-          <div>
-            Parcelas : <input id="inputparc"  [(ngModel)]="newDespesa.Parcela" type="text">
-            Tipo de Despesa : <input type="text"  [(ngModel)]="newDespesa.TipoDespesaId">
-          </div>
-
-        </div>
-      </ng-container>
-    </nz-modal>

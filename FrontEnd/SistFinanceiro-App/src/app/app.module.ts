@@ -19,8 +19,10 @@ import { DespesasComponent } from './pages/despesas/despesas.component';
 import { LucrosComponent } from './pages/lucros/lucros.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
-import { NzModalModule } from 'ng-zorro-antd/modal';
-
+import { NzModalModule} from 'ng-zorro-antd/modal';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { AddDespesaComponent } from './pages/despesas/add-despesa/add-despesa.component';
 
 registerLocaleData(pt);
 
@@ -28,7 +30,9 @@ registerLocaleData(pt);
   declarations: [
     AppComponent,
     DespesasComponent,
-    LucrosComponent
+    LucrosComponent,
+    WelcomeComponent,
+    AddDespesaComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,8 @@ registerLocaleData(pt);
     NzTableModule,
     NzRadioModule,
     NzCheckboxModule,
-    NzModalModule
+    NzModalModule,
+    NzSelectModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: pt_BR }],
   bootstrap: [AppComponent]

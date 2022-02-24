@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Despesa } from 'src/app/interface/despesa';
+import { NzModalService } from 'ng-zorro-antd/modal';
 import { despesaService } from 'src/app/services/despesaService.service';
+import { AddDespesaComponent } from './add-despesa/add-despesa.component';
 
 
 @Component({
@@ -13,15 +14,9 @@ export class DespesasComponent implements OnInit {
   public despesas : any = [];
   checked = false
 
-  newDespesa : Despesa = {
-    DataIncl : new Date,
-    Nome : '',
-    StatusDespesa : false,
-    TipoDespesaId : 0,
-    Valor : 0,
-  }
 
-  constructor(private despesaService : despesaService) { }
+
+  constructor(private despesaService : despesaService , private modalService: NzModalService) { }
 
   ngOnInit(): void {
     this.getDespesas();
@@ -34,14 +29,7 @@ export class DespesasComponent implements OnInit {
     );
   }
 
-  public addDespesa() :void{
-    this.despesaService.addDespesa(this.newDespesa).subscribe(
-      response => {console.log(this.newDespesa)
-      debugger;
-      this.getDespesas();}
-    );
-    this.isVisibleTop = false;
-  }
+
 
   meses = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 
@@ -51,31 +39,13 @@ export class DespesasComponent implements OnInit {
 
 
   isVisibleTop = false;
-  isVisibleMiddle = false;
 
-  OpenModal(): void {
-    this.isVisibleTop = true;
-  }
-
-  showModalMiddle(): void {
-    this.isVisibleMiddle = true;
+  showModal2(): void {
+    this.modalService.create({nzContent: AddDespesaComponent});
   }
 
   handleOkTop(): void {
-
   }
 
-  handleCancelTop(): void {
-    this.isVisibleTop = false;
-  }
-
-  handleOkMiddle(): void {
-    console.log('click ok');
-    this.isVisibleMiddle = false;
-  }
-
-  handleCancelMiddle(): void {
-    this.isVisibleMiddle = false;
-  }
 
 }
